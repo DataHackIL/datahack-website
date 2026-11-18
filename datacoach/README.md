@@ -29,3 +29,7 @@ Keep contact and newsletter consent separate. A contact submission must never
 subscribe the visitor, and an unsuccessful subscription must not display a
 success message. Never use applicant data or an existing subscriber export
 to test the site.
+
+Both newsletter layouts post directly to Brevo's public DataCoach form
+(list 4, double confirmation). Only the email address, honeypot and locale
+are submitted. Cloudflare stores no subscriber addresses or Brevo API key.

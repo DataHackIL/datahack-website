@@ -32,10 +32,27 @@
     email.required = true;
     email.maxLength = 254;
     if (!message) {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        if (window.dataCoachNewsletter) window.dataCoachNewsletter(form, email.value.trim(), t => status(form, t));
-        else status(form, 'Newsletter signup is not available yet. Please try again later.');
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!form.reportValidity() || form.dataset.sending) return;
+        form.dataset.sending = 'true';
+        const button = form.querySelector('button');
+        button.disabled = true;
+        try {
+          const response = await fetch(form.action, {method: 'POST', credentials: 'omit',
+            body: new URLSearchParams(new FormData(form)), signal: AbortSignal.timeout(15000)});
+          const result = await response.json();
+          if (!response.ok || result.success !== true) throw new Error('Signup not acknowledged');
+          form.reset();
+          status(form, 'Check your email to confirm your DataCoach subscription.');
+        } catch {
+          status(form, 'We could not confirm your request. ');
+          const fallback = document.createElement('a');
+          fallback.href = form.action; fallback.textContent = 'Open the DataCoach signup form.';
+          statuses.get(form).append(fallback);
+        } finally {
+          delete form.dataset.sending; button.disabled = false;
+        }
       });
       continue;
     }
