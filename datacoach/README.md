@@ -1,14 +1,21 @@
 # DataCoach review site
 
 The five public pages of the DataCoach Technion site are served by the
-`datacoach-review` Cloudflare Pages project. This is an unindexed **review**
-deployment. No custom domains, registrar changes, or Wix billing changes
-are part of this deployment.
+`datacoach-review` Cloudflare Pages project. Pages hostnames remain unindexed;
+the `datacoach.org.il` apex is indexable if it is routed to this project.
+No custom domains, registrar changes, or Wix billing changes are part of this
+deployment.
 
-From this directory run `python3 build.py`, then `node --test contact.test.mjs`.
+From this directory run `python3 build.py`, then `node --test contact.test.mjs indexing.test.mjs`.
 Preview with `wrangler pages dev dist`. Publish a reviewed build with
 `wrangler pages deploy dist --project-name datacoach-review --branch main`
 under the DataHack account. Normal builds use only committed assets.
+
+The five public pages carry apex canonical URLs. Pages middleware redirects
+only GET and HEAD from `www.datacoach.org.il` to the HTTPS apex, preserving
+the path and query; POST requests continue to their handler. On the apex,
+`robots.txt` permits crawling. Other hosts retain `noindex` and disallow
+crawling. This configuration does not attach either hostname or change DNS.
 
 The public desktop and mobile designs are in `design/`; the mobile layout
 uses the original 320 CSS-pixel canvas. FAQ categories, slide content, menus
