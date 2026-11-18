@@ -1,0 +1,9 @@
+{
+  "timeZone": "Asia/Jerusalem",
+  "runtimeVersion": "V8",
+  "oauthScopes": ["https://www.googleapis.com/auth/script.send_mail"],
+  "webapp": {
+    "access": "ANYONE_ANONYMOUS",
+    "executeAs": "USER_DEPLOYING"
+  }
+}
