@@ -82,7 +82,11 @@
         }
         slide.setAttribute('aria-hidden', String(i !== index));
       });
-      dots.forEach(dot => dot.setAttribute('aria-current', String(dot.hash.slice(1) === slides[index].id)));
+      dots.forEach(dot => {
+        const active = dot.hash.slice(1) === slides[index].id;
+        dot.setAttribute('aria-current', String(active));
+        dot.classList.toggle('JPnvZO', active);
+      });
     };
     region.querySelector('[data-testid="prevButton"]')?.addEventListener('click', () => show(index - 1));
     region.querySelector('[data-testid="nextButton"]')?.addEventListener('click', () => show(index + 1));
