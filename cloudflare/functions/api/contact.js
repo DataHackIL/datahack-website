@@ -29,6 +29,7 @@ export async function onRequestPost({ request, env }) {
   if (!env.CONTACT_WEBHOOK || !env.CONTACT_TOKEN) {
     return reply('The contact form is not available yet. Please email ' + inbox + '.', 503);
   }
+  let stage = 'configuration';
   try {
     const endpoint = new URL(env.CONTACT_WEBHOOK);
     if (endpoint.origin !== 'https://script.google.com' ||
@@ -36,19 +37,24 @@ export async function onRequestPost({ request, env }) {
       throw new Error('Invalid Apps Script endpoint');
     }
     const signal = AbortSignal.timeout(10000);
+    stage = 'relay-request';
     let result = await fetch(endpoint, {
       method: 'POST', redirect: 'manual', signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: env.CONTACT_TOKEN, name, email, message }),
     });
+    stage = 'relay-status-' + result.status;
     if ([302, 303].includes(result.status)) {
       const location = new URL(result.headers.get('Location'));
       if (location.origin !== 'https://script.googleusercontent.com') throw new Error('Unexpected redirect');
-      result = await fetch(location, { redirect: 'error', signal });
+      stage = 'relay-result-request';
+      result = await fetch(location.href, { method: 'GET', redirect: 'manual', signal });
     }
+    stage = 'relay-result-status-' + result.status;
     if (!result.ok || (await result.json()).ok !== true) throw new Error('Delivery rejected');
     return reply('Thanks. Your message was sent to DataHack.', 200);
   } catch {
+    console.warn('Contact delivery failed at ' + stage);
     return reply('We could not send your message. Please email ' + inbox + '.', 502);
   }
 }

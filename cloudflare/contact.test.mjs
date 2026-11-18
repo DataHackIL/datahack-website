@@ -41,10 +41,19 @@ test('follows the Apps Script output redirect without forwarding the submission'
   let seen = 0;
   t.mock.method(globalThis, 'fetch', async (url, options) => {
     if (++seen === 1) return Response.redirect('https://script.googleusercontent.com/test', 302);
-    assert.equal(url.origin, 'https://script.googleusercontent.com');
+    assert.equal(new URL(url).origin, 'https://script.googleusercontent.com');
+    assert.equal(options.method, 'GET');
     assert.equal(options.body, undefined);
     return Response.json({ ok: true });
   });
   assert.equal((await submit(message, env)).status, 200);
   assert.equal(seen, 2);
+});
+
+test('does not follow a relay redirect to another origin', async (t) => {
+  const env = { CONTACT_WEBHOOK: 'https://script.google.com/macros/s/test/exec', CONTACT_TOKEN: 'test-only' };
+  const relay = t.mock.method(globalThis, 'fetch', async () =>
+    Response.redirect('https://other.test/unexpected', 302));
+  assert.equal((await submit(message, env)).status, 502);
+  assert.equal(relay.mock.callCount(), 1);
 });
