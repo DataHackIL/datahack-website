@@ -68,13 +68,17 @@ def home():
 <h2>Partners</h2><div class="logos">{partners}</div></div></section>
 <section class="wrap band contact" id="contact"><div><p class="label">Contact</p><h2>Get in touch</h2>
 <p><a href="mailto:contact@datahack.org.il">contact@datahack.org.il</a></p></div>
-<form action="/api/contact" method="post">
+<form action="/api/contact" method="post" id="contact-form">
 <label>Name<input name="name" autocomplete="name" required maxlength="100"></label>
 <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254"></label>
 <label>Message<textarea name="message" rows="5" required maxlength="4000"></textarea></label>
 <div hidden><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAGG1-qTJDZKK7qdk" data-action="contact" data-size="flexible"></div>
 <button class="action" type="submit">Send message</button>
-</form></section>""")
+<p id="contact-status" role="status" aria-live="polite" hidden></p>
+</form>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+<script src="/assets/contact.js" defer></script></section>""")
 
 
 def team():

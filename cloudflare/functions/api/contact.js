@@ -1,4 +1,5 @@
 const inbox = 'contact@datahack.org.il';
+const siteverify = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
 function reply(text, status) {
   return new Response(text + '\n', {
@@ -26,8 +27,23 @@ export async function onRequestPost({ request, env }) {
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message || message.length > 4000) {
     return reply('Please check your name, email address and message.', 400);
   }
-  if (!env.CONTACT_WEBHOOK || !env.CONTACT_TOKEN) {
+  if (!env.CONTACT_WEBHOOK || !env.CONTACT_TOKEN || !env.TURNSTILE_SECRET) {
     return reply('The contact form is not available yet. Please email ' + inbox + '.', 503);
+  }
+  const challenge = field('cf-turnstile-response');
+  if (!challenge || challenge.length > 2048) return reply('Please complete the security check and try again.', 400);
+  try {
+    const verification = await fetch(siteverify, {
+      method: 'POST', redirect: 'manual', signal: AbortSignal.timeout(5000),
+      body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: challenge }),
+    });
+    if (!verification.ok) throw new Error('Turnstile not available');
+    const result = await verification.json();
+    if (!result.success || result.action !== 'contact' || result.hostname !== new URL(request.url).hostname) {
+      return reply('The security check expired or failed. Please try again.', 403);
+    }
+  } catch {
+    return reply('The security check is temporarily unavailable. Please email ' + inbox + '.', 503);
   }
   let stage = 'configuration';
   try {
