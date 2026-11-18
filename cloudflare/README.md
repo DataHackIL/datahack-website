@@ -4,7 +4,7 @@ This Cloudflare Pages app is isolated from the legacy Jekyll site in the reposit
 
 From this directory, run `python3 build.py` and `node --test contact.test.mjs` (Node 22+). To serve static files with clean URLs and test the Pages Function, run `wrangler pages dev ./dist`.
 
-`import_wix.py` is an optional, networked snapshot refresh; it requires Beautiful Soup. Review the public content and asset diff before publishing. The wordmark mirrors the live Wix site pending review against the Figma source. The newsletter links to its existing standalone signup; the contact form does not subscribe anyone.
+`import_wix.py` is an optional, networked snapshot refresh; it requires Beautiful Soup. Review the public content and asset diff before publishing. The wordmark mirrors the live Wix site and the palette draws from the DataHack Brandbook in the shared Marketing drive. The Figma brand assets and historical site decisions still need review. The newsletter links to its existing standalone signup; the contact form does not subscribe anyone.
 
 The preview is public but marked noindex, uses no custom domain, and can be deployed from this directory with `wrangler pages deploy ./dist --project-name datahack-org-preview` using DataHack's account credentials. Do not commit credentials.
 
