@@ -5,6 +5,7 @@ import shutil
 import tempfile
 from pathlib import Path
 from syllabi import apply_syllabi
+from team import link_team_names
 
 BASE = Path(__file__).resolve().parent
 OUT = BASE / 'dist'
@@ -21,6 +22,8 @@ with tempfile.TemporaryDirectory(prefix='.datanights-build-', dir=BASE) as tempo
         source = page.read_text(encoding='utf-8')
         if page == stage / 'index.html':
             source = apply_syllabi(source)
+        if page == stage / 'blank/index.html':
+            source = link_team_names(source)
         source = source.replace('<html lang="he" dir="rtl">', '<html lang="en">', 1)
         source = source.replace('<body>', '<body class="responsive"><script>document.body.classList.toggle("device-mobile-responsive", matchMedia("(max-width: 750px)").matches)</script>', 1)
         source = source.replace('</head>', '<script defer src="/datanights/forms/newsletter.js"></script></head>', 1)
