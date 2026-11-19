@@ -53,4 +53,6 @@ def apply_syllabi(source):
         raise ValueError("Unexpected syllabus cards; review desktop and mobile captures")
     for start, end, replacement in reversed(parser.edits):
         source = source[:start] + replacement + source[end:]
-    return source
+    # An empty decorative box overlays the program cards in both Wix captures.
+    css = '<style>[id="comp-m92ogs6s4"],[id="comp-m92ogs6s4"] *{pointer-events:none!important}a[aria-label$="course syllabus"]{position:relative;z-index:1}</style>'
+    return source.replace("</head>", css + "</head>", 1)
