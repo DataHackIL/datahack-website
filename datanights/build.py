@@ -4,6 +4,7 @@ import re
 import shutil
 import tempfile
 from pathlib import Path
+from syllabi import apply_syllabi
 
 BASE = Path(__file__).resolve().parent
 OUT = BASE / 'dist'
@@ -18,6 +19,8 @@ with tempfile.TemporaryDirectory(prefix='.datanights-build-', dir=BASE) as tempo
     shutil.copy2(BASE / 'forms' / 'newsletter.js', forms / 'newsletter.js')
     for page in stage.rglob('*.html'):
         source = page.read_text(encoding='utf-8')
+        if page == stage / 'index.html':
+            source = apply_syllabi(source)
         source = source.replace('<html lang="he" dir="rtl">', '<html lang="en">', 1)
         source = source.replace('<body>', '<body class="responsive"><script>document.body.classList.toggle("device-mobile-responsive", matchMedia("(max-width: 750px)").matches)</script>', 1)
         source = source.replace('</head>', '<script defer src="/datanights/forms/newsletter.js"></script></head>', 1)
