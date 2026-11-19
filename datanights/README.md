@@ -1,9 +1,9 @@
 # DataNights review site
 
-This directory builds the independent Cloudflare Pages review copy of the
-public DataNights Wix site. The project is `datanights-review`; only its
-`pages.dev` address is in scope. Do not attach a custom domain, update DNS,
-or change a Wix subscription as part of preview deployment.
+This directory builds the DataNights site on Cloudflare Pages. The project is
+`datanights-review`. Its `pages.dev` addresses remain non-indexable.
+The middleware preserves the existing production canonical host,
+`www.datanights.org.il`, and redirects apex GET and HEAD requests to it.
 
 ## Build and preview
 
