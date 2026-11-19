@@ -21,7 +21,7 @@
     const status = document.createElement('p');
     status.setAttribute('role', 'status');
     status.setAttribute('aria-live', 'polite');
-    status.style.cssText = 'font:14px/1.4 Arial,sans-serif;color:inherit;margin:8px 0;';
+    status.style.cssText = 'font:14px/1.4 Arial,sans-serif;color:#fff;margin:8px 0;';
     form.append(status);
     form.addEventListener('submit', async event => {
       event.preventDefault();
@@ -44,6 +44,7 @@
         const link = document.createElement('a');
         link.href = url;
         link.textContent = 'open the hosted signup form';
+        link.style.cssText = 'color:#fff;text-decoration:underline;';
         status.append(link, '.');
       } finally {
         button.disabled = false;
