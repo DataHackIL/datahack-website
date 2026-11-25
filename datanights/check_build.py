@@ -26,6 +26,13 @@ class Page(HTMLParser):
             if url.hostname != "preview.invalid":
                 if tag == "script":
                     self.errors.append("external executable: " + str(url.hostname))
+                wix_domains = ("wix.com", "wixsite.com", "wixstatic.com",
+                               "parastorage.com", "wixapis.com", "wixmp.com")
+                if key != "href" and any(
+                    url.hostname == host or (url.hostname or "").endswith("." + host)
+                    for host in wix_domains
+                ):
+                    self.errors.append("external Wix asset: " + ref)
                 continue
             path = ROOT / unquote(url.path).lstrip("/")
             if not path.is_file() and not (path / "index.html").is_file():
