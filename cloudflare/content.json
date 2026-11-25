@@ -1,0 +1,285 @@
+{
+  "hero": "hero.webp",
+  "supporters": [
+    {
+      "name": "Bustan",
+      "asset": "bustan.webp"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Lightricks",
+      "asset": "partner-01.webp"
+    },
+    {
+      "name": "Technion",
+      "asset": "partner-02.webp"
+    },
+    {
+      "name": "Check Point",
+      "asset": "partner-03.webp"
+    },
+    {
+      "name": "Hebrew University of Jerusalem",
+      "asset": "partner-04.webp"
+    },
+    {
+      "name": "Dell EMC",
+      "asset": "partner-05.webp"
+    },
+    {
+      "name": "Salesforce",
+      "asset": "partner-06.webp"
+    },
+    {
+      "name": "Eastech",
+      "asset": "partner-07.webp"
+    },
+    {
+      "name": "Onvego",
+      "asset": "partner-08.webp"
+    },
+    {
+      "name": "AKA",
+      "asset": "partner-09.webp"
+    },
+    {
+      "name": "Partner logo",
+      "asset": "partner-10.webp"
+    },
+    {
+      "name": "Ragis",
+      "asset": "partner-11.webp"
+    },
+    {
+      "name": "PayPal",
+      "asset": "partner-12.webp"
+    },
+    {
+      "name": "Hasoub",
+      "asset": "partner-13.webp"
+    },
+    {
+      "name": "Michal Sela Forum",
+      "asset": "partner-14.webp"
+    },
+    {
+      "name": "Wix",
+      "asset": "partner-15.webp"
+    },
+    {
+      "name": "University of Notre Dame",
+      "asset": "partner-16.webp"
+    },
+    {
+      "name": "Baot",
+      "asset": "partner-17.webp"
+    },
+    {
+      "name": "Gav-Yam",
+      "asset": "partner-18.webp"
+    },
+    {
+      "name": "MEET",
+      "asset": "partner-19.webp"
+    },
+    {
+      "name": "Yerushalmit",
+      "asset": "partner-20.webp"
+    },
+    {
+      "name": "Nubius",
+      "asset": "partner-21.webp"
+    },
+    {
+      "name": "FemForward",
+      "asset": "partner-22.webp"
+    },
+    {
+      "name": "itworks",
+      "asset": "partner-23.webp"
+    },
+    {
+      "name": "Harmonya",
+      "asset": "partner-24.webp"
+    }
+  ],
+  "programs": [
+    {
+      "name": "DataCoach",
+      "description": "Coaching for Arab STEM students and graduates on their way to a first data science role.",
+      "url": "https://www.datacoach.org.il/"
+    },
+    {
+      "name": "DataNights",
+      "description": "Hands-on AI courses by and for women working in the field.",
+      "url": "https://www.datanights.org.il/"
+    },
+    {
+      "name": "DataProject",
+      "description": "Industry-backed data science team projects for Arab students.",
+      "url": "https://linkedin.com/company/dataproject-il"
+    },
+    {
+      "name": "DataTalks",
+      "description": "Technical machine learning meetups featuring speakers from research and industry.",
+      "url": "https://www.meetup.com/DataHack/"
+    },
+    {
+      "name": "DataConnectIL",
+      "description": "An AI and cybersecurity community for new and veteran immigrants to Israel.",
+      "url": "https://dataconnect.org.il/"
+    },
+    {
+      "name": "DataForBetter",
+      "description": "Data scientists and early-career practitioners build AI solutions for social initiatives.",
+      "url": null
+    }
+  ],
+  "social": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/company/datahack/?originalSubdomain=il"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/datahackil/"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@DataHackIL"
+    },
+    {
+      "name": "Newsletter",
+      "url": "https://datahack-il.us12.list-manage.com/subscribe?u=de6927f58980fe1c8f3b78cf7&id=d70a19b217"
+    }
+  ],
+  "team": [
+    {
+      "name": "Shay Palachy Affek",
+      "description": "Executive Director (volunteer), Co-Founder of Datahack",
+      "asset": "person-12.webp"
+    },
+    {
+      "name": "Gal Hever",
+      "description": "Program Founder & Lead at DataNights, Executive Board Member",
+      "asset": "person-14.webp"
+    },
+    {
+      "name": "Amir Khardosh",
+      "description": "Chief Program Manager",
+      "asset": "person-16.webp"
+    },
+    {
+      "name": "Rania Khoury",
+      "description": "Program Founder & Lead at DataProject",
+      "asset": "person-18.webp"
+    },
+    {
+      "name": "tomer cohen",
+      "description": "DataTalks TLV",
+      "asset": "person-20.webp"
+    },
+    {
+      "name": "SHARON COOPER",
+      "description": "DataNights",
+      "asset": "person-22.webp"
+    },
+    {
+      "name": "TOM BEER",
+      "description": "DataTalks Haifa",
+      "asset": "person-24.webp"
+    },
+    {
+      "name": "Yaara Cohen",
+      "description": "DataNights",
+      "asset": "person-26.webp"
+    },
+    {
+      "name": "Maya fudim",
+      "description": "Program Founder & Lead at DataConnectIL",
+      "asset": "person-28.webp"
+    },
+    {
+      "name": "Tal Cordova",
+      "description": "DataNights",
+      "asset": "person-30.webp"
+    },
+    {
+      "name": "Tal Elisberg",
+      "description": "DataCoach",
+      "asset": "person-32.webp"
+    },
+    {
+      "name": "Nataly Kouritz",
+      "description": "DataNights, Executive Board Member",
+      "asset": "person-34.webp"
+    },
+    {
+      "name": "Amnon wahle",
+      "description": "DataNights",
+      "asset": "person-36.webp"
+    },
+    {
+      "name": "Daniel Marcous",
+      "description": "Executive Board Member",
+      "asset": "person-38.webp"
+    },
+    {
+      "name": "Nathanel Shimoni",
+      "description": "Executive Board Member",
+      "asset": "person-40.webp"
+    },
+    {
+      "name": "Mhna Massalha",
+      "description": "DataCoach",
+      "asset": "person-42.webp"
+    },
+    {
+      "name": "Eman Hasan",
+      "description": "DataCoach",
+      "asset": "person-44.webp"
+    },
+    {
+      "name": "Sama Baloum",
+      "description": "DataCoach",
+      "asset": "person-46.webp"
+    },
+    {
+      "name": "BANA SADI",
+      "description": "DataCoach",
+      "asset": "person-48.webp"
+    },
+    {
+      "name": "Adam Rosenthal",
+      "description": "Executive Board Member",
+      "asset": "person-50.webp"
+    }
+  ],
+  "advisors": [
+    {
+      "name": "Yitzik Crombie",
+      "description": "Haredi tech entrepreneur, social innovator, and public leader. Co-Founder and CEO of MeGo, and a member of the Council for Higher Education\u2019s Steering Committee for promoting higher education in the Haredi sector."
+    },
+    {
+      "name": "Dori Kafri",
+      "description": "CEO of Develeap, a DevOps consultancy with a people-first approach, and a tech veteran commited to social impact."
+    },
+    {
+      "name": "Maya Hofman Levy",
+      "description": "Ecosystem Strategy Lead at Dell EMC Israel and manager of their site in Beer Sheba, a board memeber at PlaceIL and active in various intiatives to promote women in tech."
+    },
+    {
+      "name": "Hisham Abdulhalim",
+      "description": "Research Fellow at the Technion. Holds a leadership role in AI product development in Intuit\u2019s AI division"
+    },
+    {
+      "name": "Ofir Bibi",
+      "description": "VP of Research at Lightricks, PhD Neural Computation from The Hebrew University of Jerusalem."
+    },
+    {
+      "name": "David Snyder",
+      "description": "Biochemist and neuroscientist, biotech VP, Derech Kfar board member and former director of Itworks\u2019 \u201cMentoring for Success\u201d program."
+    }
+  ]
+}

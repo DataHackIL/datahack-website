@@ -1,0 +1,36 @@
+/* Keep the original breakpoints and sticky panels. Adjust the reading scale
+   inside them without scaling the hero, grid tracks, or partner wordmarks. */
+#comp-lxx78ac4 .comp-lxx78ac4-container,
+#comp-lxx78ac4.comp-lxx78ac4-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+#comp-lxx78ac4 #comp-lxxf3xeh {
+  align-self: center;
+  flex: none;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+}
+#comp-lxx78ac4 #comp-lxxf6rjy { align-self: center; width: 100%; margin: 0; }
+#comp-lxx78ac4 #comp-lxxf4e6g { max-width: 100%; }
+#comp-lxx78ac4 #comp-lxxf586a { width: 100%; }
+#comp-lxx78ac4 #comp-lxxf586a p { font-size: 20px; line-height: 1.45; }
+
+#comp-mipwnkif .comp-mipwnkit17 { width: 62px; height: 64px; }
+#comp-mipwnkif .comp-mipwnkiw10 p { font-size: 22px; }
+#comp-mipwnkif .comp-mipwnkix10 p,
+#comp-miq5fx6y .font_9,
+#comp-miq5ym81 .font_9 { font-size: 16px; line-height: 1.5; }
+
+@media (max-width: 1000px) {
+  #comp-lxx78ac4 #comp-lxxf586a p { font-size: 17px; }
+}
+@media (max-width: 750px) {
+  #comp-lxx78ac4 #comp-lxxf3xeh { width: 40px; height: 40px; }
+  #comp-mipwnkif .comp-mipwnkit17 { width: 72px; height: 58px; }
+  #comp-mirh7s5t .font_9 { font-size: 15px; line-height: 1.45; }
+}
